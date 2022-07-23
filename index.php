@@ -1,3 +1,6 @@
+<?php include 'partials/_dbconnect.php'; ?>
+<!-- INSERT INTO `blood_bank` (`sno`, `blood_type`, `hospital_name`, `hospital_location`, `tstamp`) VALUES ('1', 'B+',
+'Apollo', 'Bangalore', current_timestamp()); -->
 <!doctype html>
 <html lang="en">
 
@@ -24,57 +27,7 @@
 <body>
 
     <!-- navbar -->
-    <nav class="navbar  navbar-expand-md  navbar-light" style="background-color: #e3f2fd;">
-        <div class="container-xxl">
-
-            <!-- navbar brand / title -->
-            <a class="navbar-brand" href="#intro">
-                <span class="text-dark fw-bold">
-                    <i class="bi bi-peace-fill text-danger"></i>
-                    Blood-Care
-                </span>
-            </a>
-
-            <!-- toggle button for mobile nav -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
-                aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- navbar links -->
-            <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Add Sample</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Requests</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#faq">FAQ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#review">Reviews</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact Us</a>
-                    </li>
-
-                    <div class="d-flex">
-
-                        <li class="nav-item ms-2 ">
-                            <a class="btn btn-warning" href="#">Login</a>
-                        </li>
-                        <li class="nav-item ms-2">
-                            <a class="btn btn-outline-danger" href="#">Signup</a>
-                        </li>
-                    </div>
-
-
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+    <?php include 'partials/_navbar.php'; ?>
 
     <!-- main image & intro text -->
     <section id="intro">
@@ -100,41 +53,38 @@
     <section id="blood-sample" class="mt-5 bg-light">
 
         <div class="container-lg">
+
             <div class="text-center">
                 <h2 class="display-2">Available Blood Samples</h2>
                 <p class="lead text-muted">Request sample for the required blood group</p>
             </div>
             <div class="row justify-content-center align-items-center my-5">
-                <div class="col-md-4 my-2 ">
-                    <div class="card shadow rounded border-danger border-2 ">
-                        <div class="card-body">
-                            <h5 class="card-title">B+</h5>
-                            <p class="card-subtitle lead">Apollo Hospital</p>
-                            <p class="card-text">Bangalore</p>
-                            <a href="#" class="btn btn-warning">Request Sample</a>
-                        </div>
+                <?php
+             $sql = "SELECT * FROM `blood_bank`";
+             $result = mysqli_query($conn, $sql);
+             while($row = mysqli_fetch_assoc($result)){
+                // echo $row['sno'] .  " Blood Type: ". $row['blood_type'] ." Name ". $row['hospital_name']."Location".$row['hospital_location'];
+                // echo "<br>";
+                $sno = $row['sno'];
+                $bloodtype = $row['blood_type'];
+                $name = $row['hospital_name'];
+                $location = $row['hospital_location'];
+
+                echo '  <div class="col-md-4 my-2 ">
+                <div class="card shadow rounded border-danger border-2 ">
+                    <div class="card-body">
+                        <h5 class="card-title">'.$bloodtype.'</h5>
+                        <p class="card-subtitle lead">'.$name.'</p>
+                        <p class="card-text">'.$location.'</p>
+                        <a href="#" class="btn btn-warning">Request Sample</a>
                     </div>
                 </div>
-                <div class="col-md-4" my-2>
-                    <div class="card shadow rounded border-danger border-2">
-                        <div class="card-body">
-                            <h5 class="card-title">O+</h5>
-                            <p class="card-subtitle lead">NRR Hospital</p>
-                            <p class="card-text">Bangalore</p>
-                            <a href="#" class="btn btn-warning">Request Sample</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 my-2">
-                    <div class="card shadow rounded border-danger border-2">
-                        <div class="card-body">
-                            <h5 class="card-title">B-</h5>
-                            <p class="card-subtitle lead">Sapthagiri Hospital</p>
-                            <p class="card-text ">Bangalore</p>
-                            <a href="#" class="btn btn-warning">Request Sample</a>
-                        </div>
-                    </div>
-                </div>
+            </div>';
+            }
+        
+            ?>
+
+
             </div>
         </div>
     </section>
