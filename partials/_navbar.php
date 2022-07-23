@@ -37,10 +37,10 @@
                    <div class="d-flex">
 
                        <li class="nav-item ms-2 ">
-                           <a class="btn btn-warning" href="#">Login</a>
+                           <a class="btn btn-warning" href="#blood-sample">Request Sample</a>
                        </li>
                        <li class="nav-item ms-2">
-                           <a class="btn btn-outline-danger" href="#">Signup</a>
+                           <a class="btn btn-outline-danger" href="login.php">Login</a>
                        </li>
                    </div>
 

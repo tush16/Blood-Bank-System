@@ -39,7 +39,9 @@
                         <div class="display-5 text-muted">Donate Blood Save A Life!</div>
                     </h1>
                     <p class="lead text-muted my-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                    <a href="#blood-sample" class="btn btn-outline-danger btn-lg">Request Sample</a>
+                    <p class="fw-bold fs-3 my-3 text-muted">To Get Started! Register Below</p>
+                    <a href="registerhospital.php" class="btn btn-outline-danger btn-lg">Hospital</a>
+                    <a href="registerreciever.php" class="btn btn-outline-warning btn-lg ms-2">Receiver</a>
                 </div>
                 <div class="col-md-5 text-center d-none d-md-block">
                     <img class="img-fluid" src="images\blood-donor.jpg" alt=" blood-bank">
