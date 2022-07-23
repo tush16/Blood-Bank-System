@@ -1,8 +1,12 @@
 <?php
+session_start();
+
+?>
+<?php
 $sent = false;
 $showError = false;
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include 'partials/_dbconnect.php';
     $bloodtype = $_POST["bloodtype"];
     $name = $_POST["name"];
@@ -10,16 +14,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $sql = " INSERT INTO `blood_bank` (`blood_type`, `hospital_name`, `hospital_location`, `tstamp`) VALUES ('$bloodtype',
     '$name', '$location', current_timestamp());";
-    $result = mysqli_query($conn,$sql);
+    $result = mysqli_query($conn, $sql);
 
-    if($result){
-      $sent = true;
+    if ($result) {
+        $sent = true;
+    } else {
+        $showError = "Some Error occured try again";
     }
-    else{
-      $showError = "Some Error occured try again";
-    }
-   
-
 }
 ?>
 <!doctype html>

@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <?php include 'partials/_dbconnect.php'; ?>
 <!-- INSERT INTO `blood_bank` (`sno`, `blood_type`, `hospital_name`, `hospital_location`, `tstamp`) VALUES ('1', 'B+',
 'Apollo', 'Bangalore', current_timestamp()); -->
@@ -62,29 +66,28 @@
             </div>
             <div class="row justify-content-center align-items-center my-5">
                 <?php
-             $sql = "SELECT * FROM `blood_bank`";
-             $result = mysqli_query($conn, $sql);
-             while($row = mysqli_fetch_assoc($result)){
-                // echo $row['sno'] .  " Blood Type: ". $row['blood_type'] ." Name ". $row['hospital_name']."Location".$row['hospital_location'];
-                // echo "<br>";
-                $sno = $row['sno'];
-                $bloodtype = $row['blood_type'];
-                $name = $row['hospital_name'];
-                $location = $row['hospital_location'];
+                $sql = "SELECT * FROM `blood_bank`";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
 
-                echo '  <div class="col-md-4 my-2 ">
+                    $sno = $row['sno'];
+                    $bloodtype = $row['blood_type'];
+                    $name = $row['hospital_name'];
+                    $location = $row['hospital_location'];
+
+                    echo '  <div class="col-md-4 my-2 ">
                 <div class="card shadow rounded border-danger border-2 ">
                     <div class="card-body">
-                        <h5 class="card-title">'.$bloodtype.'</h5>
-                        <p class="card-subtitle lead">'.$name.'</p>
-                        <p class="card-text">'.$location.'</p>
+                        <h5 class="card-title">' . $bloodtype . '</h5>
+                        <p class="card-subtitle lead">' . $name . '</p>
+                        <p class="card-text">' . $location . '</p>
                         <a href="#" class="btn btn-warning">Request Sample</a>
                     </div>
                 </div>
             </div>';
-            }
-        
-            ?>
+                }
+
+                ?>
 
 
             </div>
