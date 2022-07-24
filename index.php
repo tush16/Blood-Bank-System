@@ -81,7 +81,7 @@ session_start();
                         <h5 class="card-title">' . $bloodtype . '</h5>
                         <p class="card-subtitle lead">' . $name . '</p>
                         <p class="card-text">' . $location . '</p>
-                        <a href="#" class="btn btn-warning">Request Sample</a>
+                        <a href="requestsample.php?catid=' . $sno . '" class="btn btn-warning">Request Sample</a>
                     </div>
                 </div>
             </div>';

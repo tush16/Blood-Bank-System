@@ -32,7 +32,7 @@ if ($loggedin && $_SESSION['usertype'] == 'hospital') {
                <a class="nav-link" href="sample.php">Add Sample</a>
            </li>
            <li class="nav-item">
-               <a class="nav-link" href="#">Requests</a>
+               <a class="nav-link" href="request.php">Requests</a>
            </li>';
 }
 
