@@ -1,6 +1,5 @@
 <?php
 session_start();
-$show = false;
 ?>
 <?php
 
