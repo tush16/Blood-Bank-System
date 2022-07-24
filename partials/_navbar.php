@@ -26,29 +26,20 @@ echo '<nav class="navbar  navbar-expand-md  navbar-dark" style="background-color
         </button>
         <!-- navbar links -->
         <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
-            <ul class="navbar-nav">';
+            <ul class="navbar-nav">
+            <li class="nav-item">
+               <a class="nav-link fw-bold text-dark " href="index.php">Home</a>
+           </li>';
 if ($loggedin && $_SESSION['usertype'] == 'hospital') {
     echo '     <li class="nav-item">
-               <a class="nav-link" href="sample.php">Add Sample</a>
+               <a class="nav-link fw-bold text-dark" href="sample.php">Add Sample</a>
            </li>
            <li class="nav-item">
-               <a class="nav-link" href="request.php">Requests</a>
+               <a class="nav-link fw-bold text-dark" href="request.php">Requests</a>
            </li>';
 }
 
-echo '
-           
-                <li class="nav-item">
-                    <a class="nav-link" href="#faq">FAQ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#review">Reviews</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact Us</a>
-                </li>
 
-                <div class="d-flex">';
 
 if ($loggedin && $_SESSION['usertype'] == 'reciever') {
     echo '
@@ -64,11 +55,10 @@ if (!$loggedin) {
                     </li> ';
 }
 
-echo '</div>
-    </ul>';
+
 if ($loggedin) {
     echo '
-              <ul class="navbar-nav d-flex flex-row me-1 ml-2 mt-2 mt-md-0">
+              <ul class="navbar-nav d-flex flex-row me-1 ml-2 mt-2 mt-md-0" id="main-nav">
           
               <div class="dropdown">
               <button class="btn btn-warning dropdown-toggle ms-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,6 +70,8 @@ if ($loggedin) {
             </div>
               </ul>';
 }
+echo '</div>
+    </ul>';
 echo '
               </div>
             </div>
