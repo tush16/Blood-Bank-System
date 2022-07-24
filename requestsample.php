@@ -18,4 +18,4 @@ while ($row = mysqli_fetch_assoc($result)) {
 $sql = " INSERT INTO `requests` (`receiver_name`, `hospital_name`, `blood_group`) VALUES ('$user', '$hospital_name', '$bloodtype');";
 $result = mysqli_query($conn, $sql);
 
-header("location: requestsent.php");
+header("location: index.php");

@@ -9,7 +9,7 @@ if (isset($_SESSION['username']) && $_SESSION['username'] == true && $_SESSION['
 
 
 // <!-- navbar -->
-echo '<nav class="navbar  navbar-expand-md  navbar-dark" style="background-color: #F37878;">
+echo '<nav class="navbar  navbar-expand-md  navbar-light" style="background-color: #F37878;">
     <div class="container-xxl">
 
         <!-- navbar brand / title -->
@@ -28,8 +28,8 @@ echo '<nav class="navbar  navbar-expand-md  navbar-dark" style="background-color
         <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
             <ul class="navbar-nav">
             <li class="nav-item">
-               <a class="nav-link fw-bold text-dark " href="index.php">Home</a>
-           </li>';
+            <a class="nav-link fw-bold text-dark" href="index.php">Home</a>
+        </li>';
 if ($loggedin && $_SESSION['usertype'] == 'hospital') {
     echo '     <li class="nav-item">
                <a class="nav-link fw-bold text-dark" href="sample.php">Add Sample</a>
@@ -39,7 +39,8 @@ if ($loggedin && $_SESSION['usertype'] == 'hospital') {
            </li>';
 }
 
-
+echo '
+                <div class="d-flex">';
 
 if ($loggedin && $_SESSION['usertype'] == 'reciever') {
     echo '
@@ -55,10 +56,11 @@ if (!$loggedin) {
                     </li> ';
 }
 
-
+echo '</div>
+    </ul>';
 if ($loggedin) {
     echo '
-              <ul class="navbar-nav d-flex flex-row me-1 ml-2 mt-2 mt-md-0" id="main-nav">
+              <ul class="navbar-nav d-flex flex-row me-1 ml-2 mt-2 mt-md-0">
           
               <div class="dropdown">
               <button class="btn btn-warning dropdown-toggle ms-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -70,8 +72,6 @@ if ($loggedin) {
             </div>
               </ul>';
 }
-echo '</div>
-    </ul>';
 echo '
               </div>
             </div>

@@ -1,15 +1,7 @@
 <?php
 session_start();
 ?>
-<?php
 
-include 'partials/_dbconnect.php';
-if (isset($_SESSION['username']) && $_SESSION['username'] == true && $_SESSION['usertype'] && $_SESSION['usertype'] == true) {
-    $loggedin = true;
-} else {
-    $loggedin = false;
-}
-?>
 <?php include 'partials/_dbconnect.php'; ?>
 <!-- INSERT INTO `blood_bank` (`sno`, `blood_type`, `hospital_name`, `hospital_location`, `tstamp`) VALUES ('1', 'B+',
 'Apollo', 'Bangalore', current_timestamp()); -->
@@ -40,7 +32,6 @@ if (isset($_SESSION['username']) && $_SESSION['username'] == true && $_SESSION['
 
     <!-- navbar -->
     <?php include 'partials/_navbar.php'; ?>
-
 
     <!-- main image & intro text -->
     <section id="intro">
@@ -101,6 +92,7 @@ if (isset($_SESSION['username']) && $_SESSION['username'] == true && $_SESSION['
                 }
 
                 ?>
+
 
 
             </div>
@@ -410,14 +402,6 @@ if (isset($_SESSION['username']) && $_SESSION['username'] == true && $_SESSION['
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <script>
-    var myModal = document.getElementById('myModal')
-    var myInput = document.getElementById('myInput')
-
-    myModal.addEventListener('shown.bs.modal', function() {
-        myInput.focus()
-    })
     </script>
 
 </body>

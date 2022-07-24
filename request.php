@@ -3,17 +3,7 @@ session_start();
 
 ?>
 
-<?php
-include 'partials/_dbconnect.php';
-$hospitalsamplename = $_SESSION['username'];
-$sql = "SELECT * FROM `requests` WHERE hospital_name = '$hospitalsamplename' ";
-$result = mysqli_query($conn, $sql);
-while ($row = mysqli_fetch_assoc($result)) {
-    $bloodtype = $row['blood_group'];
-    $name = $row['receiver_name'];
-}
 
-?>
 
 
 <!doctype html>
@@ -44,6 +34,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
     <!-- Reviews -->
 
+
     <section id="review" class="bg-light">
         <div class="container-lg">
             <div class="text-center">
@@ -54,13 +45,25 @@ while ($row = mysqli_fetch_assoc($result)) {
                 <div class="col-lg-8">
                     <div class="list-group">
                         <div class="list-group-item">
-                            <span class="fw-bold"> Blood-Group <i
-                                    class="bi bi-arrow-right-circle-fill text-danger"></i></span>
-                            <h5 class="mb-1 d-inline text-danger"><?php echo $bloodtype?></h5>
-                            <p class="mb-1  fst-italic">Requested By
-                                <span class="mb-1 lead"><?php echo $name?> </span>
-                            </p>
 
+                            <?php
+                            include 'partials/_dbconnect.php';
+                            $hospitalsamplename = $_SESSION['username'];
+                            $sql = "SELECT * FROM `requests` WHERE hospital_name = '$hospitalsamplename' ";
+                            $result = mysqli_query($conn, $sql);
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $bloodtype = $row['blood_group'];
+                                $name = $row['receiver_name'];
+                            echo '
+                            <span class="fw-bold"> Blood-Group
+                                <i class="bi bi-arrow-right-circle-fill text-danger"></i></span>
+                            <h5 class="mb-1 d-inline text-danger">'.$bloodtype.'</h5>
+                            <p class="mb-1  fst-italic">Requested By
+                                <span class="mb-1 lead">'.$name.' </span>
+                            </p>';
+                            }
+
+                            ?>
 
                         </div>
                     </div>

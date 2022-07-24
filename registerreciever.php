@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="text" id="form3Example1c" class="form-control" name="name"
                                                     required />
-                                                <label class="form-label" for="form3Example1c">Hospital Name</label>
+                                                <label class="form-label" for="form3Example1c">Your Name</label>
                                             </div>
                                         </div>
                                         <div class="d-flex flex-row align-items-center mb-4">
